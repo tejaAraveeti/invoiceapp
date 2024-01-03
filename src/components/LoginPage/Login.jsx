@@ -14,7 +14,7 @@ const Login = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(value), // Convert value to JSON
+        body: JSON.stringify(value), 
       });
 
       const data = await response.json();

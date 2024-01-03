@@ -11,9 +11,7 @@ const Signup = () => {
   // Get the navigate function from react-router-dom
   const navigate = useNavigate();
 
-  // Function to handle signup form submission
   const handleSignup = async () => {
-    // Create a data object with form field values
     const data = {
       username: username,
       name: name,
@@ -22,7 +20,6 @@ const Signup = () => {
     };
 
     try {
-      // Make a POST request to the signup API endpoint
       const response = await fetch("http://localhost:8000/api/signup/", {
         method: "POST",
         headers: {
@@ -31,17 +28,13 @@ const Signup = () => {
         body: JSON.stringify(data),
       });
 
-      // Handle the response from the server
       const responseData = await response.json();
 
       if (response.ok) {
-        // If signup is successful, navigate to the login page
         console.log("Signup successful");
-        navigate("/login"); // Use the navigate function to go to the login page
+        navigate("/login"); 
       } else {
-        // If signup fails, you can display an error message to the user
         console.error("Signup failed:", responseData);
-        // Display an error message or handle failure as needed
       }
     } catch (error) {
       console.error("Error during signup:", error);
@@ -65,7 +58,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Name field */}
         <div className="mb-3">
           <label htmlFor="name" className="form-label">
             Name:
@@ -79,7 +71,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Email field */}
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             Email:
@@ -93,7 +84,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Password field */}
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
             Password:
@@ -107,7 +97,6 @@ const Signup = () => {
           />
         </div>
 
-        {/* Signup button */}
         <button
           type="button"
           className="btn btn-primary"
